@@ -16,7 +16,7 @@ while (!double.TryParse(theNumberAsAString, out number1))
     theNumberAsAString = Console.ReadLine();
 }
 
-Console.WriteLine(" \n The number iss : " + number1);
+Console.WriteLine(" \n The number is : " + number1);
 
 
 
