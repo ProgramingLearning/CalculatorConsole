@@ -13,9 +13,9 @@ Console.WriteLine("6.Even / Odd");
 Console.WriteLine("7.Prime");
 Console.WriteLine("8.Square root");
 Console.WriteLine("9.Mirrored");
-Console.WriteLine("10.Modulus of x");
-Console.WriteLine("11.Palindrome");
-Console.WriteLine("12.SuperPalindrome");
+Console.WriteLine("10.Palindrome");
+Console.WriteLine("11.Superpalidrome ");
+Console.WriteLine("12.Modulus of x");
 Console.WriteLine("13.Display palindrome and superpalindrome numbers between 1 and 10000");
 
 
@@ -58,7 +58,7 @@ Console.WriteLine(" \nThe number is " + number2);
 
 double operationNumber = 0;
 
-while (!double.TryParse(opertaion, out operationNumber) || (operationNumber != 1 && operationNumber != 2 && operationNumber != 3 && operationNumber != 4 && operationNumber != 5 && operationNumber != 6 && operationNumber != 7 && operationNumber != 8 && operationNumber != 9 && operationNumber != 10))
+while (!double.TryParse(opertaion, out operationNumber) || (operationNumber != 1 && operationNumber != 2 && operationNumber != 3 && operationNumber != 4 && operationNumber != 5 && operationNumber != 6 && operationNumber != 7 && operationNumber != 8 && operationNumber != 9 && operationNumber != 10 && operationNumber != 11 && operationNumber != 12 && operationNumber != 13))
 {
     Console.WriteLine(" \n Choose a valid operation ");
     opertaion = Console.ReadLine();
@@ -271,6 +271,97 @@ switch (operationNumber)
         else
         {
             Console.WriteLine("The number is not palindrom ");
+        }
+
+        if (mirrored == number2)
+        {
+            Console.WriteLine("The number is palindrom");
+        }
+        else
+        {
+            Console.WriteLine("The number is not palindrom ");
+        }
+        break;
+
+    case 11:
+        int mir = 0;
+        numb1 = Convert.ToInt32(number1);
+        while (numb1 != 0)
+        {
+            mir = (mir * 10) + (numb1 % 10);
+            numb1 = numb1 / 10;
+        }
+
+        double numbPow = Math.Pow(number1, 2);
+        int mirPal = 0;
+        int numbPow1 = Convert.ToInt32(numbPow);
+
+        while (numbPow1 != 0)
+        {
+            mirPal = (mirPal * 10) + (numbPow1 % 10);
+            numbPow1 = numbPow1 / 10;
+        }
+
+        if ((mir == number1) && (mirPal == numbPow))
+        {
+            Console.WriteLine("The number is super palindrom");
+        }
+        else
+        {
+            Console.WriteLine("The number is not super palindrom ");
+        }
+
+        break;
+
+    case 12:
+
+        double valAbs = 0;
+        if (number1 >= 0)
+        {
+            valAbs = number1;
+        }
+        else
+        {
+            valAbs = -number1;
+        }
+        Console.WriteLine("Modulus of number1 " + valAbs);
+
+        double valAbs2 = 0;
+        if (number2 >= 0)
+        {
+            valAbs2 = number2;
+        }
+        else
+        {
+            valAbs2 = -number2;
+        }
+        Console.WriteLine("Modulus of number2 " + valAbs2);
+        break;
+
+
+    case 13:
+
+        for (int k = 1; k <= 10000; k++)
+        {
+
+            string data = k.ToString();
+
+            bool isPalindrome = true;
+
+            for (int i = 0; i < data.Length / 2; i++)
+            {
+
+                if (data[i] != data[(data.Length - 1) - i])
+                {
+                    isPalindrome = false;
+                    break;
+                }
+            }
+
+            if (isPalindrome)
+            {
+                Console.WriteLine("Palindrome :" + k);
+            }
         }
         break;
 
