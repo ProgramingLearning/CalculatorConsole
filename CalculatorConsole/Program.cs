@@ -17,6 +17,7 @@ Console.WriteLine("10.Palindrome");
 Console.WriteLine("11.Superpalidrome ");
 Console.WriteLine("12.Modulus of x");
 Console.WriteLine("13.Display palindrome and superpalindrome numbers between 1 and 10000");
+Console.WriteLine("14.Display superpalindrome numbers between 1 and 10000");
 
 
 
@@ -58,7 +59,7 @@ Console.WriteLine(" \nThe number is " + number2);
 
 double operationNumber = 0;
 
-while (!double.TryParse(opertaion, out operationNumber) || (operationNumber != 1 && operationNumber != 2 && operationNumber != 3 && operationNumber != 4 && operationNumber != 5 && operationNumber != 6 && operationNumber != 7 && operationNumber != 8 && operationNumber != 9 && operationNumber != 10 && operationNumber != 11 && operationNumber != 12 && operationNumber != 13))
+while (!double.TryParse(opertaion, out operationNumber) || (operationNumber != 1 && operationNumber != 2 && operationNumber != 3 && operationNumber != 4 && operationNumber != 5 && operationNumber != 6 && operationNumber != 7 && operationNumber != 8 && operationNumber != 9 && operationNumber != 10 && operationNumber != 11 && operationNumber != 12 && operationNumber != 13 && operationNumber !=14))
 {
     Console.WriteLine(" \n Choose a valid operation ");
     opertaion = Console.ReadLine();
@@ -363,6 +364,34 @@ switch (operationNumber)
                 Console.WriteLine("Palindrome :" + k);
             }
         }
+        break;
+
+        case 14:
+
+         for (int k = 1; k <= 1000; k++)
+        {
+            double kPow = Math.Pow(k, 2);
+
+            string data = kPow.ToString();
+
+            bool isSuperPalindrome = true;
+
+            for (int i = 0; i < data.Length / 2; i++)
+            {
+
+                if (data[i] != data[(data.Length - 1) - i])
+                {
+                    isSuperPalindrome = false;
+                    break;
+                }
+            }
+
+            if (isSuperPalindrome)
+            {
+                Console.WriteLine("Super Palindrome :" + kPow);
+            }
+        }
+
         break;
 
 
