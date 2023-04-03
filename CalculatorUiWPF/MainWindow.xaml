@@ -1,0 +1,25 @@
+﻿<Window x:Class="CalculatorUiWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculatorUiWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="Black">
+        <!--Header-->
+        <Grid >
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <TextBlock Text="CALCULATOR" FontSize="40" Foreground="Pink " HorizontalAlignment="Center" />
+
+            </StackPanel>
+        </Grid>
+
+        <Button Height="NaN" Margin="97,179,640,217" Width="NaN">Button 1</Button>
+        <Button Height="NaN" Margin="265,179,472,217" Width="NaN">Button 1</Button>
+        <Button Height="NaN" Margin="180,179,557,217" Width="NaN">Button 1</Button>
+        <Button Height="NaN" Margin="180,238,557,158" Width="NaN">Button 1</Button>
+        <Button Height="NaN" Margin="97,238,640,158" Width="NaN">Button 1</Button>
+
+    </Grid>
+</Window>
