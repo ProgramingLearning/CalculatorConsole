@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalculatorConsole
 {
-    internal static class ReadNumber
+    internal static class ConsoleNumberReader
     {
         public static double GetDoubleNumberFromConsole()
         {
@@ -28,7 +28,6 @@ namespace CalculatorConsole
 
             return number;
         }
-
 
         public static double GetNonNegativeDoubleNumberFromConsole()
         {
