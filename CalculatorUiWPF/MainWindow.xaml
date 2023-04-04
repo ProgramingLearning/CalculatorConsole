@@ -5,21 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatorUiWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Background="Black">
+        Title="MainWindow" Height="500" Width="400">
+    <Grid Background="LightGray" Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
         <!--Header-->
-        <Grid >
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <TextBlock Text="CALCULATOR" FontSize="40" Foreground="Pink " HorizontalAlignment="Center" />
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="5" Background="LightGray" Orientation="Vertical">
+            <TextBlock  TextAlignment="Center" Text="CALCULATOR" FontSize="50" Foreground="Black" />
+        </StackPanel>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="5" Name="OutputTextBlock" TextAlignment="Right" FontSize="30" Background="LightPink"></TextBlock>
 
-            </StackPanel>
-        </Grid>
-
-        <Button Height="NaN" Margin="97,179,640,217" Width="NaN">Button 1</Button>
-        <Button Height="NaN" Margin="265,179,472,217" Width="NaN">Button 1</Button>
-        <Button Height="NaN" Margin="180,179,557,217" Width="NaN">Button 1</Button>
-        <Button Height="NaN" Margin="180,238,557,158" Width="NaN">Button 1</Button>
-        <Button Height="NaN" Margin="97,238,640,158" Width="NaN">Button 1</Button>
+        <Button Margin="1" Grid.Row="2" Grid.Column="0" Background="pink" FontWeight="Bold">Delete</Button>
+        <Button Margin="1" Grid.Row="3" Grid.Column="0" Background="pink" Click="ShowNumber_Click">1</Button>
+        <Button Margin="1" Grid.Row="3" Grid.Column="1" Background="pink" Click="ShowNumber_Click">2</Button>
+        <Button Margin="1" Grid.Row="3" Grid.Column="2" Background="pink" Click="ShowNumber_Click">3</Button>
+        <Button Margin="1" Grid.Row="4" Grid.Column="0" Background="pink" Click="ShowNumber_Click">4</Button>
+        <Button Margin="1" Grid.Row="4" Grid.Column="1" Background="pink" Click="ShowNumber_Click">5</Button>
+        <Button Margin="1" Grid.Row="4" Grid.Column="2" Background="pink" Click="ShowNumber_Click">6</Button>
+        <Button Margin="1" Grid.Row="5" Grid.Column="0" Background="pink" Click="ShowNumber_Click">7</Button>
+        <Button Margin="1" Grid.Row="5" Grid.Column="1" Background="pink" Click="ShowNumber_Click">8</Button>
+        <Button Margin="1" Grid.Row="5" Grid.Column="2" Background="pink" Click="ShowNumber_Click">9</Button>
+        <Button Margin="1" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Background="pink" Click="ShowNumber_Click">0</Button>
+        <Button Margin="1" Grid.Row="6" Grid.Column="2" Background="pink">.</Button>
+        <Button Margin="1" Grid.Row="3" Grid.Column="3" Background="pink" FontWeight="Bold" >/</Button>
+        <Button Margin="1" Grid.Row="4" Grid.Column="3" Background="pink" FontWeight="Bold">-</Button>
+        <Button Margin="1" Grid.Row="5" Grid.Column="3" Background="pink" FontWeight="Bold">*</Button>
+        <Button Margin="1" Grid.Row="6" Grid.Column="3" Background="pink" FontWeight="Bold">+</Button>
+        <Button Margin="1" Grid.Row="5" Grid.RowSpan="2" Grid.Column="4" Background="pink" FontWeight="Bold">=</Button>
 
     </Grid>
 </Window>

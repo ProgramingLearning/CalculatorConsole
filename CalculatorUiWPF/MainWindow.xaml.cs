@@ -24,5 +24,11 @@ namespace CalculatorUiWPF
         {
             InitializeComponent();
         }
+
+        private void ShowNumber_Click(object sender, RoutedEventArgs e)
+        {
+            string content = (string)((Button)sender).Content;
+            this.OutputTextBlock.Text += content;    
+        }
     }
 }
