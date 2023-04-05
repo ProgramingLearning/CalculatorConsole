@@ -11,7 +11,6 @@ namespace CalculatorConsole
     {
         public static void CalculateAbsoluteValueOfDoubleNumber()
         {
-
             var number = ConsoleNumberReader.GetDoubleNumberFromConsole();
             double valAbs = MathematicalOperations.GetAbsoluteValue(number);
             Console.WriteLine("Modulus of number " + valAbs);
@@ -150,15 +149,17 @@ namespace CalculatorConsole
                 if (isPalindrome)
                 {
                     Console.WriteLine("Palindrome= " + k);
+
+                    double kPow = Math.Pow(k, 2);
+                    string dataPow = kPow.ToString();
+                    bool isSuperPalindrome = MathematicalOperations.IsStringPalindrome(dataPow);
+                    if (isSuperPalindrome)
+                    {
+                        Console.WriteLine("Super Palindrome= " + kPow);
+                    }
                 }
 
-                double kPow = Math.Pow(k, 2);
-                string dataPow = kPow.ToString();
-                bool isSuperPalindrome = MathematicalOperations.IsStringPalindrome(dataPow);
-                if (isSuperPalindrome)
-                {
-                    Console.WriteLine("Super Palindrome= " + kPow);
-                }
+                
             }
         }
     }

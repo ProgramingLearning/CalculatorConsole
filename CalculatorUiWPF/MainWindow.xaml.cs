@@ -25,10 +25,20 @@ namespace CalculatorUiWPF
             InitializeComponent();
         }
 
-        private void ShowNumber_Click(object sender, RoutedEventArgs e)
+        public void ShowNumber_Click(object sender, RoutedEventArgs e)
         {
             string content = (string)((Button)sender).Content;
-            this.OutputTextBlock.Text += content;    
+            this.OutputTextBlock.Text += content;
+        }
+
+        public void DeleteNumber_Click(object sender, RoutedEventArgs e)
+        {
+            OutputTextBlock.Text = string.Empty;
+        }
+        
+        public void Division_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
