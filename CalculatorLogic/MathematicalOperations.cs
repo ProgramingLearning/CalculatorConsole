@@ -55,7 +55,7 @@ namespace CalculatorLogic
             return mirrored;
         }
 
-        public static double GetSum(double number1, double number2)
+        public static double GetSumResult(double number1, double number2)
         {
             return number1 + number2;
         }

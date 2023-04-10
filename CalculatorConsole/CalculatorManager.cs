@@ -90,7 +90,7 @@ namespace CalculatorConsole
         {
             (double number1, double number2) = ConsoleNumberReader.GetTwoDoubleNumbers();
 
-            double sumResult = MathematicalOperations.GetSum(number1, number2);
+            double sumResult = MathematicalOperations.GetSumResult(number1, number2);
 
             Console.WriteLine("Sum Result= " + sumResult);
         }
