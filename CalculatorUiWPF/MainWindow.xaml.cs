@@ -23,6 +23,7 @@ namespace CalculatorUiWPF
         private string operation;
         private string number1;
         private bool hasOperationBeenPressed;
+        private bool hasResultBeenPressed;
         public MainWindow()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace CalculatorUiWPF
             this.OutputTextBlock.Text += content;
 
             hasOperationBeenPressed = false;
+            hasResultBeenPressed = false;
         }
 
         public void DeleteNumber_Click(object sender, RoutedEventArgs e)
@@ -77,38 +79,41 @@ namespace CalculatorUiWPF
         public void Result_Click(object sender, RoutedEventArgs e)
         {
             hasOperationBeenPressed = true;
-
-            var numberD1 = double.Parse(number1);
-            var numberD2 = double.Parse(OutputTextBlock.Text);
-            switch (operation)
+            if (!hasResultBeenPressed)
             {
-                case "division":
-                    {
-                        if (numberD2 != 0)
+                var numberD1 = double.Parse(number1);
+                var numberD2 = double.Parse(OutputTextBlock.Text);
+                switch (operation)
+                {
+                    case "division":
                         {
-                            OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetDivResult(numberD1, numberD2).ToString();
+                            if (numberD2 != 0)
+                            {
+                                OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetDivResult(numberD1, numberD2).ToString();
+                            }
+                            break;
                         }
-                        break;
-                    }
-                case "sum":
-                    {
-                        OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetSumResult(numberD1, numberD2).ToString();
-                        break;
-                    }
-                case "substraction":
-                    {
-                        OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetSubResult(numberD1, numberD2).ToString();
-                        break;
-                    }
+                    case "sum":
+                        {
+                            OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetSumResult(numberD1, numberD2).ToString();
+                            break;
+                        }
+                    case "substraction":
+                        {
+                            OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetSubResult(numberD1, numberD2).ToString();
+                            break;
+                        }
 
-                case "multiplication":
-                    {
-                        OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetMultiplicantionResult(numberD1, numberD2).ToString();
+                    case "multiplication":
+                        {
+                            OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetMultiplicantionResult(numberD1, numberD2).ToString();
+                            break;
+                        }
+                    default:
                         break;
-                    }
-                default:
-                    break;
+                }
             }
+            hasResultBeenPressed = true;
         }
     }
 }
