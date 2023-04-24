@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CalculatorUiWPF
 {
@@ -24,6 +12,16 @@ namespace CalculatorUiWPF
         private string number1;
         private bool hasOperationBeenPressed;
         private bool hasResultBeenPressed;
+        private bool canShowResult;
+
+        public string LabelText
+        {
+            get
+            {
+                return $"{number1} {operation} {this.OutputTextBlock.Text}";
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,9 +29,14 @@ namespace CalculatorUiWPF
 
         public void ShowNumber_Click(object sender, RoutedEventArgs e)
         {
-            if (hasOperationBeenPressed)
+            if (hasOperationBeenPressed || hasResultBeenPressed)
             {
                 OutputTextBlock.Text = string.Empty;
+
+                if (hasOperationBeenPressed)
+                {
+                    canShowResult = true;
+                }
             }
 
             string content = (string)((Button)sender).Content;
@@ -46,74 +49,91 @@ namespace CalculatorUiWPF
         public void DeleteNumber_Click(object sender, RoutedEventArgs e)
         {
             OutputTextBlock.Text = string.Empty;
+            canShowResult = false;
         }
 
         public void Division_Click(object sender, RoutedEventArgs e)
         {
-            operation = "division";
-            number1 = OutputTextBlock.Text;
-            hasOperationBeenPressed = true;
+            if (!string.IsNullOrEmpty(OutputTextBlock.Text))
+            {
+                operation = "division";
+                number1 = OutputTextBlock.Text;
+                hasOperationBeenPressed = true;
+            }
         }
 
         public void Substraction_Click(object sender, RoutedEventArgs e)
         {
-            operation = "substraction";
-            number1 = OutputTextBlock.Text;
-            hasOperationBeenPressed = true;
+            if (!string.IsNullOrEmpty(OutputTextBlock.Text))
+            {
+                operation = "substraction";
+                number1 = OutputTextBlock.Text;
+                hasOperationBeenPressed = true;
+            }
         }
 
         public void Multiplication_Click(object sender, RoutedEventArgs e)
         {
-            operation = "multiplication";
-            number1 = OutputTextBlock.Text;
-            hasOperationBeenPressed = true;
+            if (!string.IsNullOrEmpty(OutputTextBlock.Text))
+            {
+                operation = "multiplication";
+                number1 = OutputTextBlock.Text;
+                hasOperationBeenPressed = true;
+            }
         }
 
         public void Sum_Click(object sender, RoutedEventArgs e)
         {
-            operation = "sum";
-            number1 = OutputTextBlock.Text;
-            hasOperationBeenPressed = true;
+            if (!string.IsNullOrEmpty(OutputTextBlock.Text))
+            {
+                operation = "sum";
+                number1 = OutputTextBlock.Text;
+                hasOperationBeenPressed = true;
+            }
         }
 
         public void Result_Click(object sender, RoutedEventArgs e)
         {
-            hasOperationBeenPressed = true;
-            if (!hasResultBeenPressed)
+            if (canShowResult)
             {
-                var numberD1 = double.Parse(number1);
-                var numberD2 = double.Parse(OutputTextBlock.Text);
-                switch (operation)
+                if (!hasResultBeenPressed)
                 {
-                    case "division":
-                        {
-                            if (numberD2 != 0)
+                    var numberD1 = double.Parse(number1);
+                    var numberD2 = double.Parse(OutputTextBlock.Text);
+                    switch (operation)
+                    {
+                        case "division":
                             {
-                                OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetDivResult(numberD1, numberD2).ToString();
+                                if (numberD2 != 0)
+                                {
+                                    OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetDivResult(numberD1, numberD2).ToString();
+                                }
+                                break;
                             }
-                            break;
-                        }
-                    case "sum":
-                        {
-                            OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetSumResult(numberD1, numberD2).ToString();
-                            break;
-                        }
-                    case "substraction":
-                        {
-                            OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetSubResult(numberD1, numberD2).ToString();
-                            break;
-                        }
+                        case "sum":
+                            {
+                                OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetSumResult(numberD1, numberD2).ToString();
+                                break;
+                            }
+                        case "substraction":
+                            {
+                                OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetSubResult(numberD1, numberD2).ToString();
+                                break;
+                            }
 
-                    case "multiplication":
-                        {
-                            OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetMultiplicantionResult(numberD1, numberD2).ToString();
+                        case "multiplication":
+                            {
+                                OutputTextBlock.Text = CalculatorLogic.MathematicalOperations.GetMultiplicantionResult(numberD1, numberD2).ToString();
+                                break;
+                            }
+                        default:
                             break;
-                        }
-                    default:
-                        break;
+                    }
                 }
+
+                hasResultBeenPressed = true;
+                canShowResult = false;
             }
-            hasResultBeenPressed = true;
         }
     }
 }

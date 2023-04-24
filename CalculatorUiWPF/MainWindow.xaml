@@ -15,6 +15,7 @@
             <RowDefinition Height="45"></RowDefinition>
             <RowDefinition Height="45"></RowDefinition>
             <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -27,27 +28,28 @@
 
         <!--Header-->
         <StackPanel Grid.Row="0" Grid.ColumnSpan="5" Background="LightGray" Orientation="Vertical">
-            <TextBlock  TextAlignment="Center" Text="CALCULATOR" FontSize="50" Foreground="Black" />
+            <TextBlock  TextAlignment="Center" Text="CALCULATOR" FontSize="45" Foreground="Black" />
         </StackPanel>
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="5" Name="OutputTextBlock" TextAlignment="Right" FontSize="30" Background="LightPink"></TextBlock>
-
-        <Button Margin="1" Grid.Row="2" Grid.Column="0" Background="pink" FontWeight="Bold" Click="DeleteNumber_Click" >Delete</Button>
-        <Button Margin="1" Grid.Row="3" Grid.Column="0" Background="pink" Click="ShowNumber_Click">1</Button>
-        <Button Margin="1" Grid.Row="3" Grid.Column="1" Background="pink" Click="ShowNumber_Click">2</Button>
-        <Button Margin="1" Grid.Row="3" Grid.Column="2" Background="pink" Click="ShowNumber_Click">3</Button>
-        <Button Margin="1" Grid.Row="4" Grid.Column="0" Background="pink" Click="ShowNumber_Click">4</Button>
-        <Button Margin="1" Grid.Row="4" Grid.Column="1" Background="pink" Click="ShowNumber_Click">5</Button>
-        <Button Margin="1" Grid.Row="4" Grid.Column="2" Background="pink" Click="ShowNumber_Click">6</Button>
-        <Button Margin="1" Grid.Row="5" Grid.Column="0" Background="pink" Click="ShowNumber_Click">7</Button>
-        <Button Margin="1" Grid.Row="5" Grid.Column="1" Background="pink" Click="ShowNumber_Click">8</Button>
-        <Button Margin="1" Grid.Row="5" Grid.Column="2" Background="pink" Click="ShowNumber_Click">9</Button>
-        <Button Margin="1" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Background="pink" Click="ShowNumber_Click">0</Button>
-        <Button Margin="1" Grid.Row="6" Grid.Column="2" Background="pink" Click="ShowNumber_Click">.</Button>
-        <Button Margin="1" Grid.Row="3" Grid.Column="3" Background="pink" FontWeight="Bold" Click="Division_Click" >/</Button>
-        <Button Margin="1" Grid.Row="4" Grid.Column="3" Background="pink" FontWeight="Bold" Click="Substraction_Click" >-</Button>
-        <Button Margin="1" Grid.Row="5" Grid.Column="3" Background="pink" FontWeight="Bold" Click="Multiplication_Click" >*</Button>
-        <Button Margin="1" Grid.Row="6" Grid.Column="3" Background="pink" FontWeight="Bold" Click="Sum_Click" >+</Button>
-        <Button Margin="1" Grid.Row="5" Grid.RowSpan="2" Grid.Column="4" Background="pink" FontWeight="Bold" Click="Result_Click">=</Button>
+        
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="5" Text= "{Binding ElementName=OutputTextBlock, Path=Text}" Name="StatusTextBlock" TextAlignment="Right" FontSize="30" Foreground="Gray" Background="LightPink"/>
+        <TextBlock Margin="1" Grid.Row="2" Grid.ColumnSpan="5" Name="OutputTextBlock" TextAlignment="Right" FontSize="30" Foreground="Black" FontWeight="Bold" Background="LightPink"></TextBlock>
+        <Button Margin="1" Grid.Row="3" Grid.Column="0" Background="pink" FontWeight="Bold" Click="DeleteNumber_Click" >Delete</Button>
+        <Button Margin="1" Grid.Row="4" Grid.Column="0" Background="pink" Click="ShowNumber_Click">1</Button>
+        <Button Margin="1" Grid.Row="4" Grid.Column="1" Background="pink" Click="ShowNumber_Click">2</Button>
+        <Button Margin="1" Grid.Row="4" Grid.Column="2" Background="pink" Click="ShowNumber_Click">3</Button>
+        <Button Margin="1" Grid.Row="5" Grid.Column="0" Background="pink" Click="ShowNumber_Click">4</Button>
+        <Button Margin="1" Grid.Row="5" Grid.Column="1" Background="pink" Click="ShowNumber_Click">5</Button>
+        <Button Margin="1" Grid.Row="5" Grid.Column="2" Background="pink" Click="ShowNumber_Click">6</Button>
+        <Button Margin="1" Grid.Row="6" Grid.Column="0" Background="pink" Click="ShowNumber_Click">7</Button>
+        <Button Margin="1" Grid.Row="6" Grid.Column="1" Background="pink" Click="ShowNumber_Click">8</Button>
+        <Button Margin="1" Grid.Row="6" Grid.Column="2" Background="pink" Click="ShowNumber_Click">9</Button>
+        <Button Margin="1" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Background="pink" Click="ShowNumber_Click">0</Button>
+        <Button Margin="1" Grid.Row="7" Grid.Column="2" Background="pink" Click="ShowNumber_Click">.</Button>
+        <Button Margin="1" Grid.Row="4" Grid.Column="3" Background="pink" FontWeight="Bold" Click="Division_Click" >/</Button>
+        <Button Margin="1" Grid.Row="5" Grid.Column="3" Background="pink" FontWeight="Bold" Click="Substraction_Click" >-</Button>
+        <Button Margin="1" Grid.Row="6" Grid.Column="3" Background="pink" FontWeight="Bold" Click="Multiplication_Click" >*</Button>
+        <Button Margin="1" Grid.Row="7" Grid.Column="3" Background="pink" FontWeight="Bold" Click="Sum_Click" >+</Button>
+        <Button Margin="1" Grid.Row="6" Grid.RowSpan="2" Grid.Column="4" Background="pink" FontWeight="Bold" Click="Result_Click">=</Button>
 
     </Grid>
 </Window>
