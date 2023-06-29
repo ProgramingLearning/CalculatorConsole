@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatorUiWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="400">
+        Title="MainWindow" Height="500" Width="400"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid Background="LightGray" Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -30,9 +31,9 @@
         <StackPanel Grid.Row="0" Grid.ColumnSpan="5" Background="LightGray" Orientation="Vertical">
             <TextBlock  TextAlignment="Center" Text="CALCULATOR" FontSize="45" Foreground="Black" />
         </StackPanel>
-        
-        <TextBlock Grid.Row="1" Grid.ColumnSpan="5" Text= "{Binding ElementName=OutputTextBlock, Path=Text}" Name="StatusTextBlock" TextAlignment="Right" FontSize="30" Foreground="Gray" Background="LightPink"/>
-        <TextBlock Margin="1" Grid.Row="2" Grid.ColumnSpan="5" Name="OutputTextBlock" TextAlignment="Right" FontSize="30" Foreground="Black" FontWeight="Bold" Background="LightPink"></TextBlock>
+
+        <TextBlock Margin="1" Grid.Row="2" Grid.ColumnSpan="5" Name="OutputTextBlock" TextAlignment="Right" FontSize="30" Foreground="Black" FontWeight="Bold" Background="LightPink">0</TextBlock>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="5" Text= "{Binding Path=LabelText}" Name="StatusTextBlock" TextAlignment="Right" FontSize="30" Foreground="Gray" Background="LightPink"/>
         <Button Margin="1" Grid.Row="3" Grid.Column="0" Background="pink" FontWeight="Bold" Click="DeleteNumber_Click" >Delete</Button>
         <Button Margin="1" Grid.Row="4" Grid.Column="0" Background="pink" Click="ShowNumber_Click">1</Button>
         <Button Margin="1" Grid.Row="4" Grid.Column="1" Background="pink" Click="ShowNumber_Click">2</Button>
